@@ -1,0 +1,4 @@
+﻿This product includes software:
+
+	Nortal.Utilities.TaskSchedulerEngine (https://github.com/NortalLTD/Utilities.TaskSchedulerEngine)
+	Copyright 2013 Imre Pühvel, AS Nortal. Licenced under Apache License 2.0.

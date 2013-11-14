@@ -77,9 +77,15 @@
     <None Include="packages.config" />
     <None Include="_tools\Nortal.Utilities.AssemblyVersioning.props" />
     <None Include="_tools\Nortal.Utilities.AssemblyVersioning.targets" />
+    <None Include="_tools\NugetPackaging\Nortal.Utilities.TaskSchedulerEngine.nuspec" />
+    <None Include="_tools\NugetPackaging\PackageRelease.bat" />
   </ItemGroup>
   <ItemGroup>
     <None Include="_tools\Nortal.Utilities.AssemblyVersioning.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="_tools\NugetPackaging\NOTICE.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -104,7 +104,7 @@ namespace Nortal.Utilities.TaskSchedulerEngine
 		protected abstract IEnumerable<ISchedulerTask> InitializeTasks();
 
 		/// <summary>
-		/// Sets up service, resets tasks & their configuration.
+		/// Sets up service, resets tasks and their configuration.
 		/// </summary>
 		internal void Initialize()
 		{

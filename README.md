@@ -16,12 +16,16 @@ Main features
 * option to automatically discover all tasks from host assembly
 * Example project to help getting started
 * It is with open source (Apache v2.0 licence)
+* Available also from Nuget: https://www.nuget.org/packages/Nortal.Utilities.TaskSchedulerEngine
 
 Getting started
 -------------------
 
 * Create a console application project
-* Reference Nortal.Utilities.TaskSchedulerEngine
+* Reference Nortal.Utilities.TaskSchedulerEngine.dll -or- install nuget package
+
+		PM> Install-Package Nortal.Utilities.TaskSchedulerEngine
+
 * Implement tasks by using ISchedulerTask interface:
 
 		public class MyTask : ISchedulerTask
