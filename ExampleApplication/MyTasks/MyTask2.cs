@@ -15,7 +15,7 @@ namespace ExampleApplication.MyTasks
 		{
 			Random random = new Random();
 			Thread.Sleep(1000 + random.Next(3000)); //imitate working for some time.
-			throw new InvalidOperationException("Something went very wrong..");
+			throw new InvalidOperationException("Imitated problem in task.");
 		}
 	}
 }

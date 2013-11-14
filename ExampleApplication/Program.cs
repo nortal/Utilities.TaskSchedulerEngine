@@ -13,8 +13,8 @@ namespace ExampleApplication
 			try
 			{
 				// service that contains a single engine which automatically discovers ISchedulerTask implementations
-				var service = new SingleSchedulerEngineExecutionService<AllHostTasksSchedulerEngine>();
-				
+				var service = new SingleSchedulerEngineExecutionService<AllHostTasksSchedulerEngine>("MyTaskSchedulerService");
+
 				// to manually control included ISchedulerTasks, create your own engine by inheriting from SchedulerEngine.
 				// to have more engines running concurrently, create your own scheduler engine executor by inheriting from SchedulerEngineExecutionServiceBase
 
@@ -37,6 +37,7 @@ namespace ExampleApplication
 			catch (Exception exception)
 			{
 				Debugger.Break();
+				throw;
 			}
 		}
 

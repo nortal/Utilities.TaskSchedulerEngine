@@ -8,8 +8,6 @@ namespace ExampleApplication.MyTasks
 
 	public class AGoodTask : ISchedulerTask
 	{
-		#region ISchedulerTask Members
-
 		public bool IsEnabled { get { return true; } }
 		public DateTime ExecutionTime { get { return DateTime.Today; } }
 		public TimeSpan Interval { get { return TimeSpan.FromSeconds(5); } }
@@ -18,9 +16,7 @@ namespace ExampleApplication.MyTasks
 		{
 			Random random = new Random();
 			Thread.Sleep(1000 + random.Next(3000));
-			messagesToMainLog.Append("Updated " + random.Next(10) + "records, all fine.");
+			messagesToMainLog.Append("Executing.. all fine.");
 		}
-
-		#endregion
 	}
 }

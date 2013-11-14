@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<UsingTask TaskName="Nortal.Utilities.AssemblyVersioning.GenerateExtendedAssemblyInfoTask" AssemblyFile="Nortal.Utilities.AssemblyVersioning.dll" />
+	<Import Project="Nortal.Utilities.AssemblyVersioning.props"/>
+	<Target Name="NortalAssemblyVersioning" BeforeTargets="Build">
+		<Message Text="Regenerating file with extra assembly information .. " />
+		<Message Importance="low" Text="Configuration: $(Configuration)" />
+		<Message Importance="low" Text="GeneratorForFileVersion: $(GeneratorForFileVersion)" />
+		<Message Importance="low" Text="GeneratorForInformationalVersion: $(GeneratorForInformationalVersion)" />
+		<Message Importance="low" Text="GeneratorForConfiguration: $(GeneratorForConfiguration)" />
+
+		<!-- Remove read-only attribute for build servers -->
+		<Exec Command="attrib -R Properties\AssemblyInformationalVersion.gen.cs" />
+		<GenerateExtendedAssemblyInfoTask
+			BaseVersionFile="Properties\AssemblyInfo.cs"
+			OutputFile="Properties\AssemblyInformationalVersion.gen.cs"
+			BuildConfiguration ="$(Configuration)"
+			GeneratorForFileVersion="$(GeneratorForFileVersion)"
+			GeneratorForInformationalVersion="$(GeneratorForInformationalVersion)"
+			GeneratorForConfiguration="$(GeneratorForConfiguration)"
+		/>
+	</Target>
+</Project>
