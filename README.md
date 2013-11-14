@@ -24,23 +24,23 @@ Getting started
 * Reference Nortal.Utilities.TaskSchedulerEngine
 * Implement tasks by using ISchedulerTask interface:
 
-	public class MyTask : ISchedulerTask
-	{
-		public bool IsEnabled { get { return true; } }
-		public DateTime ExecutionTime { get { return DateTime.Now; } }
-		public TimeSpan Interval { get { return TimeSpan.FromSeconds(5); } }
-
-		public void Run(StringBuilder log)
+		public class MyTask : ISchedulerTask
 		{
-			log.Append("Hello, world!");
+			public bool IsEnabled { get { return true; } }
+			public DateTime ExecutionTime { get { return DateTime.Now; } }
+			public TimeSpan Interval { get { return TimeSpan.FromSeconds(5); } }
+		
+			public void Run(StringBuilder log)
+			{
+				log.Append("Hello, world!");
+			}
 		}
-	}
 
 * run the scheduler engine to start executing the prepared task. 
 
-	// service that contains a single engine which automatically discovers ISchedulerTask implementations
-	var engine = new AllHostTasksSchedulerEngine();
-	engine.Run();
+		// service that contains a single engine which automatically discovers ISchedulerTask implementations
+		var engine = new AllHostTasksSchedulerEngine();
+		engine.Run();
 
 * All done!
 
