@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Nortal.Utilities.AssemblyVersioning.MsBuildTask.0.11.0\build\Nortal.Utilities.AssemblyVersioning.MsBuildTask.props" Condition="Exists('..\packages\Nortal.Utilities.AssemblyVersioning.MsBuildTask.0.11.0\build\Nortal.Utilities.AssemblyVersioning.MsBuildTask.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <Import Project="_tools\Nortal.Utilities.AssemblyVersioning.targets" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -19,6 +19,8 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,7 +56,6 @@
   <ItemGroup>
     <Compile Include="AllHostTasksSchedulerEngine.cs" />
     <Compile Include="ISchedulerEngineLogger.cs" />
-    <Compile Include="Properties\AssemblyInformationalVersion.gen.cs" />
     <Compile Include="TaskLogEntryType.cs" />
     <Compile Include="EngineLogEntryType.cs" />
     <Compile Include="ISchedulerTask.cs" />
@@ -75,13 +76,11 @@
     </None>
     <None Include="Nortal.Utilities.TaskSchedulerEngine.licenseheader" />
     <None Include="packages.config" />
-    <None Include="_tools\Nortal.Utilities.AssemblyVersioning.props" />
-    <None Include="_tools\Nortal.Utilities.AssemblyVersioning.targets" />
+    <None Include="Properties\Nortal.Utilities.AssemblyVersioning.MsBuildTask.props">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="_tools\NugetPackaging\Nortal.Utilities.TaskSchedulerEngine.nuspec" />
     <None Include="_tools\NugetPackaging\PackageRelease.bat" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="_tools\Nortal.Utilities.AssemblyVersioning.dll" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -89,6 +88,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Nortal.Utilities.AssemblyVersioning.MsBuildTask.0.11.0\build\Nortal.Utilities.AssemblyVersioning.MsBuildTask.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Nortal.Utilities.AssemblyVersioning.MsBuildTask.0.11.0\build\Nortal.Utilities.AssemblyVersioning.MsBuildTask.props'))" />
+    <Error Condition="!Exists('..\packages\Nortal.Utilities.AssemblyVersioning.MsBuildTask.0.11.0\build\Nortal.Utilities.AssemblyVersioning.MsBuildTask.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Nortal.Utilities.AssemblyVersioning.MsBuildTask.0.11.0\build\Nortal.Utilities.AssemblyVersioning.MsBuildTask.targets'))" />
+  </Target>
+  <Import Project="..\packages\Nortal.Utilities.AssemblyVersioning.MsBuildTask.0.11.0\build\Nortal.Utilities.AssemblyVersioning.MsBuildTask.targets" Condition="Exists('..\packages\Nortal.Utilities.AssemblyVersioning.MsBuildTask.0.11.0\build\Nortal.Utilities.AssemblyVersioning.MsBuildTask.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

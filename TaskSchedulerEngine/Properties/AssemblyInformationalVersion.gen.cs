@@ -4,6 +4,6 @@ using System.Reflection;
 // Check ~/_tools/Nortal.Utilities.AssemblyVersioning.props file for other available algorithms and supported attributes.
 
 // Generated based on assembly version: 0.9.0
-[assembly: AssemblyInformationalVersion("0.9.0")] // algorithm: NugetSemanticVersionGenerator
-[assembly: AssemblyFileVersion("0.9.31114.928")] // algorithm: HumanReadable2SlotTimestampGenerator
-[assembly: AssemblyConfiguration("Release (on UTC2013-11-14T09:28:56 by imrep at DELL472)")] // algorithm: HumanReadableBuildInfoGenerator
+[assembly: AssemblyInformationalVersion(@"0.9.0-Debug-20161022-0838")] // algorithm: NugetSemanticVersionGenerator
+[assembly: AssemblyFileVersion(@"0.9.61022.838")] // algorithm: HumanReadable2SlotTimestampGenerator
+[assembly: AssemblyConfiguration(@"Debug (on UTC2016-10-22T08:38:51 by Imre at BLACKBOX)")] // algorithm: HumanReadableBuildInfoGenerator
